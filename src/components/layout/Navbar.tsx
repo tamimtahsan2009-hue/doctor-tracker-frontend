@@ -77,21 +77,22 @@ export function Navbar({ onOpenGlobalSearch }: NavbarProps) {
 
   return (
     <header className={cn(
-      'sticky top-0 z-20 h-16 bg-white/85 backdrop-blur-md border-b border-[#E2E8E5] transition-all duration-300 px-4 sm:px-8',
-      'flex items-center justify-between'
+      'sticky top-0 z-20 h-16 bg-white/95 backdrop-blur-md border-b border-[#E2E8E5] transition-all duration-300 px-3 sm:px-8',
+      'flex items-center justify-between gap-2'
     )}>
-      {/* Left: Mobile Toggle & Breadcrumbs */}
-      <div className="flex items-center gap-3 sm:gap-4 min-w-0">
+      {/* Left: Mobile Toggle & Page Title */}
+      <div className="flex items-center gap-2.5 sm:gap-4 min-w-0 flex-1">
         <button
           onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}
-          className="lg:hidden p-2 text-[#718096] hover:text-[#253746] hover:bg-[#F5F7F5] rounded-xl transition-colors"
+          className="lg:hidden p-2 text-[#718096] hover:text-[#253746] hover:bg-[#F5F7F5] rounded-xl transition-colors shrink-0"
           aria-label="Toggle navigation"
         >
           <Menu className="w-5 h-5" />
         </button>
 
-        <div className="flex flex-col min-w-0">
-          <div className="flex items-center gap-1.5 text-xs text-[#718096] font-medium">
+        <div className="flex flex-col min-w-0 flex-1">
+          {/* Breadcrumbs: visible on tablet/desktop */}
+          <div className="hidden sm:flex items-center gap-1.5 text-xs text-[#718096] font-medium whitespace-nowrap overflow-hidden text-ellipsis">
             {crumbs.map((crumb, idx) => (
               <React.Fragment key={crumb}>
                 {idx > 0 && <span className="text-[#C7DFD9]">/</span>}
@@ -101,18 +102,28 @@ export function Navbar({ onOpenGlobalSearch }: NavbarProps) {
               </React.Fragment>
             ))}
           </div>
-          <h1 className="text-base sm:text-[17px] font-bold text-[#253746] tracking-tight truncate leading-tight mt-0.5">
+          <h1 className="text-base sm:text-[17px] font-bold text-[#253746] tracking-tight truncate leading-tight">
             {title}
           </h1>
         </div>
       </div>
 
       {/* Right: Global Search, Notifications & User Dropdown */}
-      <div className="flex items-center gap-2.5 sm:gap-4">
-        {/* Search trigger button */}
+      <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
+        {/* Mobile Search Icon Button */}
         <button
           onClick={onOpenGlobalSearch}
-          className="flex items-center gap-2.5 px-3 py-1.5 rounded-xl bg-[#F5F7F5] hover:bg-[#EAF2EE] text-[#718096] hover:text-[#253746] border border-[#E2E8E5] hover:border-[#C7DFD9] transition-all text-xs font-medium w-36 sm:w-64"
+          className="sm:hidden p-2 text-[#718096] hover:text-[#253746] hover:bg-[#F5F7F5] rounded-xl transition-colors shrink-0"
+          aria-label="Search physicians & patients"
+          title="Search"
+        >
+          <Search className="w-5 h-5" />
+        </button>
+
+        {/* Desktop Search Trigger Pill */}
+        <button
+          onClick={onOpenGlobalSearch}
+          className="hidden sm:flex items-center gap-2.5 px-3 py-1.5 rounded-xl bg-[#F5F7F5] hover:bg-[#EAF2EE] text-[#718096] hover:text-[#253746] border border-[#E2E8E5] hover:border-[#C7DFD9] transition-all text-xs font-medium sm:w-64 shrink-0"
         >
           <Search className="w-4 h-4 text-[#718096] shrink-0" />
           <span className="truncate text-[#718096]">Search physicians & patients...</span>
@@ -122,13 +133,13 @@ export function Navbar({ onOpenGlobalSearch }: NavbarProps) {
         </button>
 
         {/* Notifications Dropdown */}
-        <div className="relative" ref={notifRef}>
+        <div className="relative shrink-0" ref={notifRef}>
           <button
             onClick={() => setShowNotifications(!showNotifications)}
-            className="relative p-2 text-[#718096] hover:text-[#253746] hover:bg-[#F5F7F5] rounded-xl transition-colors"
+            className="relative p-2 text-[#718096] hover:text-[#253746] hover:bg-[#F5F7F5] rounded-xl transition-colors shrink-0"
             aria-label="View notifications"
           >
-            <Bell className="w-4 h-4" />
+            <Bell className="w-4 h-4 sm:w-4 sm:h-4" />
             <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-[#176B60] ring-2 ring-white"></span>
           </button>
 
@@ -178,10 +189,10 @@ export function Navbar({ onOpenGlobalSearch }: NavbarProps) {
         </div>
 
         {/* Administrator Profile Dropdown */}
-        <div className="relative" ref={userMenuRef}>
+        <div className="relative shrink-0" ref={userMenuRef}>
           <button
             onClick={() => setShowUserMenu(!showUserMenu)}
-            className="flex items-center gap-2 p-1 sm:px-2 sm:py-1 rounded-xl hover:bg-[#F5F7F5] border border-transparent hover:border-[#E2E8E5] transition-all text-left"
+            className="flex items-center gap-2 p-1 sm:px-2 sm:py-1 rounded-xl hover:bg-[#F5F7F5] border border-transparent hover:border-[#E2E8E5] transition-all text-left shrink-0"
           >
             <div className="w-8 h-8 rounded-lg bg-[#102B2A] text-white font-bold text-xs flex items-center justify-center border border-[#1E4442] shadow-sm">
               {getInitials(user?.name || 'Admin')}
