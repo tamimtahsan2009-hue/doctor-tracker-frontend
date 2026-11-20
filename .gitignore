@@ -26,6 +26,10 @@ yarn-error.log*
 .env*.local
 .env
 
+# Local Scripts
+push_to_github.bat
+*.bat
+
 # Backend Repository (Separated)
 doctor-tracker-backend/
 .agents/
