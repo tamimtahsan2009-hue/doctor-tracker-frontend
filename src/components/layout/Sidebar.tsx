@@ -189,12 +189,12 @@ export function Sidebar() {
           )}
         >
           <div className="w-8 h-8 rounded-lg bg-[#176B60] border border-[#529F94]/40 flex items-center justify-center font-bold text-xs text-white shrink-0">
-            {getInitials(user?.name || 'Dr. Tahsan Tamim')}
+            {getInitials(user?.name || 'Admin')}
           </div>
           {!isSidebarCollapsed && (
             <div className="flex-1 min-w-0">
               <div className="text-xs font-semibold text-white truncate">
-                {user?.name || 'Dr. Tahsan Tamim'}
+                {user?.name || 'Admin'}
               </div>
               <div className="text-[11px] text-[#9FC4BC] truncate">
                 {user?.email || 'admin@doctortracker.health'}

@@ -45,7 +45,7 @@ export function WelcomeBanner({ onAddDoctor, onAddPatient }: WelcomeBannerProps)
           </div>
 
           <h2 className="text-[26px] sm:text-[28px] font-bold tracking-tight text-[#253746] leading-tight">
-            {getGreeting()}, {user?.name || 'Dr. Tahsan Tamim'}
+            Welcome to Doctor Tracker
           </h2>
 
           <p className="text-sm text-[#718096] leading-relaxed">

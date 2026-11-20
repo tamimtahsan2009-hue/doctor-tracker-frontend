@@ -47,7 +47,7 @@ interface AppContextType {
 
 const DEFAULT_USER: User = {
   id: 'usr-admin-1',
-  name: 'Dr. Tahsan Tamim',
+  name: 'Admin',
   email: 'admin@doctortracker.health',
   role: 'Administrator',
 };

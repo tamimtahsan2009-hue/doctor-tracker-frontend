@@ -184,11 +184,11 @@ export function Navbar({ onOpenGlobalSearch }: NavbarProps) {
             className="flex items-center gap-2 p-1 sm:px-2 sm:py-1 rounded-xl hover:bg-[#F5F7F5] border border-transparent hover:border-[#E2E8E5] transition-all text-left"
           >
             <div className="w-8 h-8 rounded-lg bg-[#102B2A] text-white font-bold text-xs flex items-center justify-center border border-[#1E4442] shadow-sm">
-              {getInitials(user?.name || 'Dr. Tahsan Tamim')}
+              {getInitials(user?.name || 'Admin')}
             </div>
             <div className="hidden md:flex flex-col">
               <span className="text-xs font-bold text-[#253746] leading-tight">
-                {user?.name || 'Dr. Tahsan Tamim'}
+                {user?.name || 'Admin'}
               </span>
               <span className="text-[11px] text-[#718096] font-medium">
                 Clinical Admin

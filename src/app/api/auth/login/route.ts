@@ -62,13 +62,13 @@ export async function POST(req: NextRequest) {
       const initialPassword = process.env.INITIAL_ADMIN_PASSWORD || 'AdminSecure2026!';
       const hashedPassword = await bcrypt.hash(initialPassword, 10);
       user = await User.create({
-        name: 'Dr. Tahsan Tamim',
+        name: 'Admin',
         email: 'admin@doctortracker.health',
         password: hashedPassword,
         role: 'Administrator',
       });
-    } else if (user && user.email === 'admin@doctortracker.health' && user.name !== 'Dr. Tahsan Tamim') {
-      user.name = 'Dr. Tahsan Tamim';
+    } else if (user && user.email === 'admin@doctortracker.health' && user.name !== 'Admin') {
+      user.name = 'Admin';
       await user.save();
     }
 

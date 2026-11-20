@@ -90,7 +90,7 @@ export async function getAuthUser(req: NextRequest): Promise<AuthUserPayload | n
       id: headerId,
       email: headerEmail,
       role: headerRole || 'Administrator',
-      name: 'Dr. Tahsan Tamim',
+      name: 'Admin',
     };
   }
 
