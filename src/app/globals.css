@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #176B60;
+  --forest: #102B2A;
+  --sage: #EAF2EE;
+  --background: #F5F7F5;
+  --card: #FFFFFF;
+  --text-primary: #253746;
+  --text-secondary: #718096;
+  --border: #E2E8E5;
+  color-scheme: light;
+}
+
+body {
+  background-color: #F5F7F5;
+  color: #253746;
+  font-family: 'Plus Jakarta Sans', Inter, system-ui, -apple-system, sans-serif;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+/* Force native select, options, datalists and inputs to stay crisp healthcare white */
+select, option, input, textarea, datalist {
+  color-scheme: light !important;
+  background-color: #ffffff;
+  color: #253746;
+}
+
+/* Custom subtle clinical scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D5E5DE;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9FC4BC;
+}
